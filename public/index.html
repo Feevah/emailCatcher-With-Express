@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+    <!-- og meta tags  -->
+
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="AJAX.js"></script>
+    <title>Sign-In</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <h1><img src="theclubhouse.png" alt="theClubhou.se Augusta"></h1>
+        <h2>Welcome! Please sign in below.</h2>
+        <h3>Select the reason you are visiting:</h3>
+        <select id="eventSelect">
+           <option>Select One</option>
+           <option value="visitor">Visitor</option>
+           <option value="foundersCircle">Founders' Circle</option>
+           <option value="millionCups">One Million Cups</option>
+           <option value="lunchAndLearn">Lunch & Learn</option>
+        </select>
+
+        <h3>Email:</h3>
+        <input type="email" id="email">
+
+        <button type="submit" id="submit" onclick="encode()">Submit</button>
+    </main>
+</body>
+</html>
