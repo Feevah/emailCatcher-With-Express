@@ -13,19 +13,23 @@ app.use(express.static(publicDirectory))
 app.get('/add', (req, res) => {
 	var emailMe =  req.query.email;
     var event = req.query.event;
-	db.insertCaughtData(emailMe)
+
+       db.insertCaughtData(emailMe)
+
+    // After inserting data, I want to redirect to empty input box 
+       res.redirect("/");
 })
 
-// We can console log data, but I want to render database at url /snow/dog
-app.get('/snow/dog', (req, res) => {
-	db.getCaughtData().then(function (result){
-		res.write(result);
-		res.end();
-	}).catch(console.log)
-    // db.getCaughtData().then(console.log(db.getCaughtData()));    		
-});
 
-// 404
+// We can console log data, but I want to render database at url /snow/dog
+
+app.get('/snow/dog', (req, res) => {
+            console.log(db.getCaughtData());    		
+})
+
+
+
+	// 404
 app.get('*', (req, res) => {
     res.send("Sorry, the page you requested does not exist.")
 })
