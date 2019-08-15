@@ -15,17 +15,16 @@ app.get('/add', (req, res) => {
     var event = req.query.event;
 
        db.insertCaughtData(emailMe)
-
-    // After inserting data, I want to redirect to empty input box 
-       res.redirect("/");
 })
 
 
-// We can console log data, but I want to render database at url /snow/dog
+// Render database at url /snow/dog
+
 
 app.get('/snow/dog', (req, res) => {
-            console.log(db.getCaughtData());    		
+  db.getCaughtData().then(result => {res.send(result)});    
 })
+
 
 
 

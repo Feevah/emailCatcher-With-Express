@@ -4,22 +4,24 @@ var mysql = require('mysql'),
     email = "";
     
 
+function getCaughtData () {
+    
 
-function getCaughtData(){
+    return new Promise((resolve, reject) => {
     var connection = mysql.createConnection({
-    	  host     : 'localhost',
-		  user     : 'root',
-		  password : 'password',
-		  database : 'catcher_in_the_wifi'
-    });
-    connection.connect(function(err) {
-        if(err) throw err;
-        connection.query("SELECT * FROM caughtInfo", function(err, result, fields) {
+    host     : 'localhost',
+    user     : 'root',
+    password : 'password',
+    database : 'catcher_in_the_wifi'
+});;
+        connection.connect(function(err){ 
+        connection.query("SELECT * FROM caughtInfo", function (err, result) {
             if (err) throw err;
-            console.log(result);
-            connection.end(); // close the connection
-        })
-    }) 
+            // console.log("calling inside the function", result);
+            resolve(JSON.parse(JSON.stringify(result)));
+        })}
+
+    )});
 }
 
 function insertCaughtData(email) {
