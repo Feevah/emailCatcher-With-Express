@@ -17,4 +17,9 @@ var event = encodeURIComponent(eventRaw);
 var request = "/add?" + "email=" + email + "&event=" + event;
    xhttp.open("GET",request, true);
    xhttp.send();
+
+document.getElementById("email").value = ""
+
+console.log(emailRaw + eventRaw)
 };
+
